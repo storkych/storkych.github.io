@@ -1,7 +1,414 @@
 <!DOCTYPE html>
-<html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume | Доленков Игорь</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
 <body>
-<h1>Hello World</h1>
-<p>I'm hosted with GitHub Pages.</p>
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="nav-links">
+                <a href="#experience" class="nav-link">Опыт</a>
+                <a href="#education" class="nav-link">Образование</a>
+                <a href="#achievements" class="nav-link">Достижения</a>
+                <a href="#skills" class="nav-link">Навыки</a>
+            </div>
+            <button class="theme-toggle" id="themeToggle" aria-label="Переключить тему">
+                <span class="toggle-track">
+                    <span class="toggle-icon sun-icon"></span>
+                    <span class="toggle-thumb"></span>
+                    <span class="toggle-icon moon-icon"></span>
+                </span>
+            </button>
+        </div>
+    </nav>
+    <div class="container">
+        <header class="header">
+            <div class="profile">
+                <img src="itsme.png" alt="Доленков Игорь" class="avatar" id="avatar">
+                <div class="profile-info">
+                    <div class="profile-header">
+                        <h1 class="name">Доленков Игорь</h1>
+                        <p class="title">Frontend | Fullstack | Unity разработчик</p>
+                    </div>
+                    <div class="profile-content">
+                        <p class="text">
+                            Fullstack-разработчик с опытом создания веб-приложений и игр. В коммерческой разработке занимаюсь корпоративными сервисами на React и Node.js. В свободное время разрабатываю инди-игры на Unity и участвую в хакатонах. Увлекаюсь полным циклом разработки: от идеи до релиза.
+                        </p>
+                        <div class="contact-info">
+                            <div class="contact-text">
+                                <span class="contact-label">Email:</span>
+                                <a href="mailto:storkych@gmail.com" class="contact-link">storkych@gmail.com</a>
+                            </div>
+                            <div class="contact-text">
+                                <span class="contact-label">Телефон:</span>
+                                <a href="tel:+79161539310" class="contact-link">+7 (916) 153-93-10</a>
+                            </div>
+                        </div>
+                        <div class="links">
+                            <a href="https://github.com/storkych" target="_blank" class="link" data-social-icon="github" data-color-dark="ffffff" data-color-light="24292f">
+                                <span class="social-icon"></span>
+                                <span class="social-text">@storkych</span>
+                            </a>
+                            <a href="https://t.me/storkych" target="_blank" class="link" data-social-icon="telegram" data-color="0088cc">
+                                <span class="social-icon"></span>
+                                <span class="social-text">@storkych</span>
+                            </a>
+                            <a href="https://vk.com/storkych" target="_blank" class="link" data-social-icon="vk" data-color="0077FF">
+                                <span class="social-icon"></span>
+                                <span class="social-text">@storkych</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <main class="main">
+
+            <section id="experience" class="section">
+                <h2 class="section-title">Опыт работы</h2>
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <h3 class="experience-title">Fullstack-разработчик</h3>
+                        <div class="experience-date-wrapper">
+                            <span class="experience-date">09.2021 — н.в.</span>
+                            <span class="employment-type">(частичная занятость)</span>
+                        </div>
+                    </div>
+                    <p class="experience-company">ООО «ОО "Согласие-М"» / ЧОП «Согласие» (группа компаний)</p>
+                    <ul class="experience-list">
+                        <li>Поддержка и развитие корпоративных сайтов</li>
+                        <li>Разработка внутреннего сервиса учёта заявок и инцидентов (React + Node.js/Express + PostgreSQL)</li>
+                        <li>Интеграции с почтой и Telegram-ботами</li>
+                        <li>Деплой и администрирование (Ubuntu, Nginx, Docker)</li>
+                    </ul>
+                    <div class="experience-tech">
+                        <span class="tag" data-icon="react" data-color="61DAFB">React</span>
+                        <span class="tag" data-icon="nodedotjs" data-color="339933">Node.js</span>
+                        <span class="tag" data-icon="postgresql" data-color="4169E1">PostgreSQL</span>
+                        <span class="tag" data-icon="docker" data-color="2496ED">Docker</span>
+                        <span class="tag" data-icon="nginx" data-color="009639">Nginx</span>
+                        <span class="tag" data-icon="git" data-color="F05032">Git</span>
+                    </div>
+                </div>
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <h3 class="experience-title">Unity разработчик</h3>
+                        <div class="experience-date-wrapper">
+                            <span class="experience-date">05.2020 — н.в.</span>
+                            <span class="employment-type">(в свободное время)</span>
+                        </div>
+                    </div>
+                    <p class="experience-company">storkyproduct (инди-студия)</p>
+                    <ul class="experience-list">
+                        <li>Выпуск 3 коммерческих игр в Steam и 10+ казуальных на Яндекс.Игры</li>
+                        <li>Полный цикл разработки (соло и команды до 12 человек)</li>
+                        <li>Бэкенд для игровых сервисов (Node.js + Express, RabbitMQ, Docker, REST API)</li>
+                        <li>Интеграции SDK (Steamworks, Yandex Games)</li>
+                    </ul>
+                    <div class="experience-tech">
+                        <span class="tag" data-icon="unity" data-color="000000">Unity</span>
+                        <span class="tag" data-icon="csharp" data-color="239120">C#</span>
+                        <span class="tag" data-icon="nodedotjs" data-color="339933">Node.js</span>
+                        <span class="tag" data-icon="rabbitmq" data-color="FF6600">RabbitMQ</span>
+                        <span class="tag" data-icon="docker" data-color="2496ED">Docker</span>
+                        <span class="tag" data-icon="git" data-color="F05032">Git</span>
+                    </div>
+                </div>
+            </section>
+
+            <section id="education" class="section">
+                <h2 class="section-title">Образование</h2>
+                <div class="education-item">
+                    <div class="education-header">
+                        <h3 class="education-title">Магистратура, Бизнес-информатика</h3>
+                        <span class="education-date">2027</span>
+                    </div>
+                    <p class="education-school">Российский экономический университет имени Г.В. Плеханова, Москва</p>
+                    <p class="education-faculty">Высшая школа кибертехнологий, математики и статистики</p>
+                </div>
+                <div class="education-item">
+                    <div class="education-header">
+                        <h3 class="education-title">Бакалавриат, Математическое обеспечение и администрирование информационных систем</h3>
+                        <span class="education-date">2025</span>
+                    </div>
+                    <p class="education-school">Российский экономический университет имени Г.В. Плеханова, Москва</p>
+                    <p class="education-faculty">Высшая школа кибертехнологий, математики и статистики</p>
+                </div>
+            </section>
+
+            <section id="achievements" class="section">
+                <h2 class="section-title">Достижения</h2>
+                <div class="achievements-list">
+                    <div class="achievement-item">
+                        <div class="achievement-header">
+                            <h3 class="achievement-title">Хакатон ЛЦТ 2025 (Лидеры Цифровой Трансформации)</h3>
+                            <span class="achievement-date">октябрь 2025</span>
+                        </div>
+                        <p class="achievement-desc">Трек «Интерактивный электронный журнал общего строительного контроля» от Главного контрольного управления города Москвы</p>
+                        <p class="achievement-result"><span class="achievement-badge">Финалист</span>, команда ITCenter</p>
+                    </div>
+                    <div class="achievement-item">
+                        <div class="achievement-header">
+                            <h3 class="achievement-title">Хакатон от MAX и VK Education</h3>
+                            <span class="achievement-date">ноябрь 2025</span>
+                        </div>
+                        <p class="achievement-desc">Трек «Цифровизация»</p>
+                        <p class="achievement-result"><span class="achievement-badge">Финалист</span>, команда ITCenter</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="skills" class="section">
+                <h2 class="section-title">Навыки</h2>
+                <div class="skills">
+                    <div class="skill-category">
+                        <span class="skill-label">Языки программирования:</span>
+                        <span class="skill-tags">
+                            <span class="tag" data-icon="javascript" data-color="F7DF1E">JavaScript</span>
+                            <span class="tag" data-icon="typescript" data-color="3178C6">TypeScript</span>
+                            <span class="tag" data-icon="csharp" data-color="239120">C#</span>
+                        </span>
+                    </div>
+                    <div class="skill-category">
+                        <span class="skill-label">Frontend:</span>
+                        <span class="skill-tags">
+                            <span class="tag" data-icon="react" data-color="61DAFB">React</span>
+                            <span class="tag" data-icon="html5" data-color="E34F26">HTML</span>
+                            <span class="tag" data-icon="css3" data-color="1572B6">CSS</span>
+                        </span>
+                    </div>
+                    <div class="skill-category">
+                        <span class="skill-label">Технологии:</span>
+                        <span class="skill-tags">
+                            <span class="tag" data-icon="nodedotjs" data-color="339933">Node.js</span>
+                            <span class="tag" data-icon="express" data-color="000000">Express</span>
+                            <span class="tag" data-icon="postgresql" data-color="4169E1">PostgreSQL</span>
+                            <span class="tag" data-icon="rabbitmq" data-color="FF6600">RabbitMQ</span>
+                        </span>
+                    </div>
+                    <div class="skill-category">
+                        <span class="skill-label">Инструменты:</span>
+                        <span class="skill-tags">
+                            <span class="tag" data-icon="docker" data-color="2496ED">Docker</span>
+                            <span class="tag" data-icon="nginx" data-color="009639">Nginx</span>
+                            <span class="tag" data-icon="git" data-color="F05032">Git</span>
+                            <span class="tag" data-icon="linux" data-color="FCC624">Linux</span>
+                            <span class="tag" data-icon="unity" data-color="000000">Unity</span>
+                        </span>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <footer class="footer">
+            <p class="footer-text">Обновлено: <span id="date"></span></p>
+        </footer>
+    </div>
+
+    <script>
+        document.getElementById('date').textContent = new Date().toLocaleDateString('ru-RU', {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric'
+        });
+
+        const themeToggle = document.getElementById('themeToggle');
+        const html = document.documentElement;
+        
+        function updateAvatar() {
+            const avatar = document.getElementById('avatar');
+            const currentTheme = html.getAttribute('data-theme');
+            if (avatar) {
+                if (currentTheme === 'light') {
+                    avatar.src = 'itsme_inv.png';
+                } else {
+                    avatar.src = 'itsme.png';
+                }
+            }
+        }
+
+        async function updateGithubIcon() {
+            const githubLink = document.querySelector('.link[data-social-icon="github"]');
+            if (githubLink) {
+                const currentTheme = html.getAttribute('data-theme');
+                const iconColor = currentTheme === 'dark' 
+                    ? githubLink.getAttribute('data-color-dark') 
+                    : githubLink.getAttribute('data-color-light');
+                const iconSvg = await getSimpleIcon('github', iconColor);
+                if (iconSvg) {
+                    const iconSpan = githubLink.querySelector('.social-icon');
+                    if (iconSpan) {
+                        const svgWithSize = iconSvg.replace('width="16"', 'width="20"').replace('height="16"', 'height="20"');
+                        iconSpan.innerHTML = svgWithSize;
+                    }
+                }
+            }
+        }
+        
+        const savedTheme = localStorage.getItem('theme') || 'dark';
+        html.setAttribute('data-theme', savedTheme);
+        updateAvatar();
+
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = html.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            html.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateAvatar();
+            updateGithubIcon();
+        });
+
+        async function addIcons() {
+            const tags = document.querySelectorAll('.tag[data-icon]');
+            
+            const iconPromises = Array.from(tags).map(async (tag) => {
+                const iconName = tag.getAttribute('data-icon');
+                const iconColor = tag.getAttribute('data-color');
+                const iconSvg = await getSimpleIcon(iconName, iconColor);
+                if (iconSvg) {
+                    const iconWrapper = document.createElement('span');
+                    iconWrapper.className = 'tag-icon';
+                    iconWrapper.innerHTML = iconSvg;
+                    tag.insertBefore(iconWrapper, tag.firstChild);
+                }
+            });
+
+            await Promise.all(iconPromises);
+        }
+
+        async function getSimpleIcon(iconName, color) {
+            try {
+                const svgResponse = await fetch(`https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/${iconName}.svg`);
+                if (svgResponse.ok) {
+                    const svgText = await svgResponse.text();
+                    const parser = new DOMParser();
+                    const svgDoc = parser.parseFromString(svgText, 'image/svg+xml');
+                    const svgElement = svgDoc.documentElement;
+                    const path = svgElement.querySelector('path');
+                    
+                    if (path) {
+                        const viewBox = svgElement.getAttribute('viewBox') || '0 0 24 24';
+                        const pathD = path.getAttribute('d');
+                        const iconColor = color ? `#${color}` : '#c9d1d9';
+                        
+                        return `<svg width="16" height="16" viewBox="${viewBox}" fill="${iconColor}" xmlns="http://www.w3.org/2000/svg"><path d="${pathD}"/></svg>`;
+                    }
+                }
+            } catch (e) {
+                console.warn(`Failed to load icon: ${iconName}`, e);
+            }
+            return null;
+        }
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', addIcons);
+        } else {
+            addIcons();
+        }
+
+        async function addSocialIcons() {
+            const socialLinks = document.querySelectorAll('.link[data-social-icon]');
+            
+            const iconPromises = Array.from(socialLinks).map(async (link) => {
+                const iconName = link.getAttribute('data-social-icon');
+                const currentTheme = html.getAttribute('data-theme');
+                let iconColor;
+                
+                if (iconName === 'github' && link.hasAttribute('data-color-dark')) {
+                    iconColor = currentTheme === 'dark' 
+                        ? link.getAttribute('data-color-dark') 
+                        : link.getAttribute('data-color-light');
+                } else {
+                    iconColor = link.getAttribute('data-color');
+                }
+                
+                const iconSvg = await getSimpleIcon(iconName, iconColor);
+                if (iconSvg) {
+                    const iconSpan = link.querySelector('.social-icon');
+                    if (iconSpan) {
+                        const svgWithSize = iconSvg.replace('width="16"', 'width="20"').replace('height="16"', 'height="20"');
+                        iconSpan.innerHTML = svgWithSize;
+                    }
+                }
+            });
+
+            await Promise.all(iconPromises);
+        }
+
+        async function addThemeIcons() {
+            const sunIcon = document.querySelector('.toggle-icon.sun-icon');
+            const moonIcon = document.querySelector('.toggle-icon.moon-icon');
+            
+            if (sunIcon) {
+                sunIcon.innerHTML = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path></svg>`;
+            }
+            
+            if (moonIcon) {
+                moonIcon.innerHTML = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>`;
+            }
+        }
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', async () => {
+                await addSocialIcons();
+                await updateGithubIcon();
+                addThemeIcons();
+            });
+        } else {
+            (async () => {
+                await addSocialIcons();
+                await updateGithubIcon();
+                addThemeIcons();
+            })();
+        }
+
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                const targetSection = document.getElementById(targetId);
+                
+                if (targetSection) {
+                    const offsetTop = targetSection.offsetTop - 56;
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        function updateActiveNavLink() {
+            const sections = document.querySelectorAll('.section[id]');
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            let current = '';
+            const scrollPosition = window.pageYOffset + 70;
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.offsetHeight;
+                
+                if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', updateActiveNavLink);
+        updateActiveNavLink();
+    </script>
 </body>
 </html>
