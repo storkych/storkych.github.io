@@ -74,6 +74,19 @@ async function generatePDF(theme, outputFileName) {
       .certificate-button {
         display: none !important;
       }
+      .skill-category {
+        display: inline !important;
+        margin-right: 16px !important;
+      }
+      .skill-label {
+        display: none !important;
+      }
+      .skill-tags {
+        display: inline !important;
+      }
+      .skill-tags .tag {
+        margin-right: 8px !important;
+      }
     `
   });
 

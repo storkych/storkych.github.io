@@ -9,17 +9,39 @@
 <body>
     <nav class="navbar">
         <div class="navbar-container">
-            <div class="nav-links">
-                <a href="#experience" class="nav-link">Опыт</a>
-                <a href="#education" class="nav-link">Образование</a>
-                <a href="#achievements" class="nav-link">Достижения</a>
-                <a href="#skills" class="nav-link">Навыки</a>
+            <div class="mode-toggle-wrapper">
+                <div class="mode-toggle" id="modeToggle" role="tablist" aria-label="Переключить режим">
+                    <button class="mode-option" data-mode="resume" role="tab" aria-selected="true">Резюме</button>
+                    <button class="mode-option" data-mode="portfolio" role="tab" aria-selected="false">Портфолио</button>
+                </div>
+            </div>
+            <div class="nav-links" id="navLinks">
+                <a href="#experience" class="nav-link" data-section="resume">Опыт</a>
+                <a href="#education" class="nav-link" data-section="resume">Образование</a>
+                <a href="#achievements" class="nav-link" data-section="resume">Достижения</a>
+                <a href="#skills" class="nav-link" data-section="resume">Навыки</a>
+                <a href="#web" class="nav-link" data-section="portfolio" style="display: none;">Web</a>
+                <a href="#gamedev" class="nav-link" data-section="portfolio" style="display: none;">GameDev</a>
+                <a href="#media" class="nav-link" data-section="portfolio" style="display: none;">Media</a>
+                <a href="#social" class="nav-link" data-section="portfolio" style="display: none;">Соц Активность</a>
             </div>
             <div class="navbar-actions">
-                <button class="download-pdf-btn" id="downloadPdfBtn" aria-label="Скачать PDF" data-icon="adobepdf" data-color="FF0000">
-                    <span class="pdf-icon"></span>
-                    <span>PDF</span>
-                </button>
+                <div class="pdf-dropdown-wrapper">
+                    <button class="download-pdf-btn" id="downloadPdfBtn" aria-label="Скачать PDF">
+                        <span class="pdf-icon"></span>
+                        <span>PDF</span>
+                    </button>
+                    <div class="pdf-dropdown" id="pdfDropdown">
+                        <button class="pdf-option-btn" data-theme="dark">
+                            <span class="pdf-option-icon" data-icon="moon" data-color="currentColor"></span>
+                            <span>Тёмная</span>
+                        </button>
+                        <button class="pdf-option-btn" data-theme="light">
+                            <span class="pdf-option-icon" data-icon="sun" data-color="currentColor"></span>
+                            <span>Светлая</span>
+                        </button>
+                    </div>
+                </div>
                 <button class="theme-toggle" id="themeToggle" aria-label="Переключить тему">
                     <span class="toggle-track">
                         <span class="toggle-icon sun-icon"></span>
@@ -27,6 +49,44 @@
                         <span class="toggle-icon moon-icon"></span>
                     </span>
                 </button>
+            </div>
+            <div class="navbar-mobile-header">
+                <div class="mode-toggle-wrapper">
+                    <div class="mode-toggle" id="modeToggleMobile" role="tablist" aria-label="Переключить режим">
+                        <button class="mode-option" data-mode="resume" role="tab" aria-selected="true">Резюме</button>
+                        <button class="mode-option" data-mode="portfolio" role="tab" aria-selected="false">Портфолио</button>
+                    </div>
+                </div>
+                <div class="navbar-actions">
+                    <div class="pdf-dropdown-wrapper">
+                        <button class="download-pdf-btn" id="downloadPdfBtnMobile" aria-label="Скачать PDF">
+                            <span class="pdf-icon"></span>
+                            <span>PDF</span>
+                        </button>
+                        <div class="pdf-dropdown" id="pdfDropdownMobile">
+                            <button class="pdf-option-btn" data-theme="dark">
+                                <span class="pdf-option-icon" data-icon="moon" data-color="currentColor"></span>
+                                <span>Тёмная</span>
+                            </button>
+                            <button class="pdf-option-btn" data-theme="light">
+                                <span class="pdf-option-icon" data-icon="sun" data-color="currentColor"></span>
+                                <span>Светлая</span>
+                            </button>
+                        </div>
+                    </div>
+                    <button class="theme-toggle" id="themeToggleMobile" aria-label="Переключить тему">
+                        <span class="toggle-track">
+                            <span class="toggle-icon sun-icon"></span>
+                            <span class="toggle-thumb"></span>
+                            <span class="toggle-icon moon-icon"></span>
+                        </span>
+                    </button>
+                    <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Открыть меню">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
             </div>
         </div>
     </nav>
@@ -73,7 +133,7 @@
         </header>
 
         <main class="main">
-
+            <div class="resume-content" id="resumeContent">
             <section id="experience" class="section">
                 <h2 class="section-title">Опыт работы</h2>
                 <div class="experience-item">
@@ -197,7 +257,7 @@
                         <span class="skill-label">Технологии:</span>
                         <span class="skill-tags">
                             <span class="tag" data-icon="nodedotjs" data-color="339933">Node.js</span>
-                            <span class="tag" data-icon="express" data-color="000000">Express</span>
+                            <span class="tag" data-icon="express" data-color-dark="ffffff" data-color-light="000000">Express</span>
                             <span class="tag" data-icon="postgresql" data-color="4169E1">PostgreSQL</span>
                             <span class="tag" data-icon="rabbitmq" data-color="FF6600">RabbitMQ</span>
                         </span>
@@ -209,11 +269,319 @@
                             <span class="tag" data-icon="nginx" data-color="009639">Nginx</span>
                             <span class="tag" data-icon="git" data-color="F05032">Git</span>
                             <span class="tag" data-icon="linux" data-color="FCC624">Linux</span>
-                            <span class="tag" data-icon="unity" data-color="000000">Unity</span>
+                            <span class="tag" data-icon="unity" data-color-dark="ffffff" data-color-light="000000">Unity</span>
                         </span>
                     </div>
                 </div>
             </section>
+            </div>
+
+            <div class="portfolio-content" id="portfolioContent" style="display: none;">
+                <section id="web" class="section">
+                    <h2 class="section-title">Web</h2>
+                    <div class="games-grid">
+                        <div class="game-card" data-gallery="assetstorage">
+                            <div class="game-image">
+                                <img src="images/web/assetstorage-1.png" alt="AssetStorage - библиотека ассетов для разработчиков игр" loading="lazy">
+                            </div>
+                            <div class="game-content">
+                                <h4 class="game-title">AssetStorage - библиотека ассетов для разработчиков игр</h4>
+                                <p class="game-stats">Веб-приложение</p>
+                                <div class="game-tech">
+                                    <span class="tag" data-icon="react" data-color-dark="61DAFB" data-color-light="61DAFB">React</span>
+                                    <span class="tag" data-icon="nodedotjs" data-color-dark="339933" data-color-light="339933">Node.js</span>
+                                    <span class="tag" data-icon="postgresql" data-color-dark="4169E1" data-color-light="4169E1">PostgreSQL</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="game-card" data-gallery="lct-hackathon">
+                            <div class="game-image">
+                                <img src="images/web/lct-hackathon-1.png" alt="Интерактивный электронный журнал общего строительного контроля" loading="lazy">
+                            </div>
+                            <div class="game-content">
+                                <h4 class="game-title">Интерактивный электронный журнал общего строительного контроля</h4>
+                                <p class="game-stats">Хакатон ЛЦТ 2025 • Финалист</p>
+                                <div class="game-tech">
+                                    <span class="tag" data-icon="react" data-color-dark="61DAFB" data-color-light="61DAFB">React</span>
+                                    <span class="tag" data-icon="django" data-color-dark="44B78B" data-color-light="092E20">Django</span>
+                                    <span class="tag" data-icon="fastapi" data-color-dark="00D4AA" data-color-light="009688">FastAPI</span>
+                                    <span class="tag" data-icon="amazons3" data-color-dark="7AA116" data-color-light="569A31">S3</span>
+                                    <span class="tag" data-icon="openai" data-color-dark="74AA9C" data-color-light="412991">ChatGPT API</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="game-card" data-gallery="belbin">
+                            <div class="game-image">
+                                <img src="images/web/belbin-2025.png" alt="Сайт с тестом Белбина" loading="lazy">
+                            </div>
+                            <div class="game-content">
+                                <h4 class="game-title">Сайт с тестом Белбина для проекта "Школа Актива"</h4>
+                                <p class="game-stats">Поддержка с 2022 года</p>
+                                <div class="game-tech">
+                                    <span class="tag" data-icon="javascript" data-color-dark="F7DF1E" data-color-light="F7DF1E">JavaScript</span>
+                                    <span class="tag" data-icon="googlesheets" data-color="34A853">Google Sheets API</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="game-card" data-gallery="soglasie">
+                            <div class="game-image">
+                                <img src="images/web/soglasie-main.png" alt="Сайт группы охранных компаний Согласие" loading="lazy">
+                            </div>
+                            <div class="game-content">
+                                <h4 class="game-title">Сайт группы охранных компаний Согласие</h4>
+                                <p class="game-stats">Корпоративный сайт</p>
+                                <div class="game-tech">
+                                    <span class="tag" data-icon="javascript" data-color-dark="F7DF1E" data-color-light="F7DF1E">JavaScript</span>
+                                    <span class="tag" data-icon="html5" data-color-dark="E34F26" data-color-light="E34F26">HTML</span>
+                                    <span class="tag" data-icon="css3" data-color-dark="1572B6" data-color-light="1572B6">CSS</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="game-card" data-gallery="hueblend">
+                            <div class="game-image">
+                                <img src="images/web/hueblend-1.png" alt="HueBlend" loading="lazy">
+                            </div>
+                            <div class="game-content">
+                                <h4 class="game-title">Сайт подбора цветовой палитры HueBlend</h4>
+                                <p class="game-stats">Инструмент для дизайнеров</p>
+                                <div class="game-tech">
+                                    <span class="tag" data-icon="typescript" data-color-dark="3178C6" data-color-light="3178C6">TypeScript</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="game-card" data-gallery="quest">
+                            <div class="game-image">
+                                <img src="images/web/quest-stations.png" alt="Веб-сервис для разгона станций квестов" loading="lazy">
+                            </div>
+                            <div class="game-content">
+                                <h4 class="game-title">Веб-сервис для разгона станций квестов</h4>
+                                <p class="game-stats">Админ-панель и управление</p>
+                                <div class="game-tech">
+                                    <span class="tag" data-icon="react" data-color-dark="61DAFB" data-color-light="61DAFB">React</span>
+                                    <span class="tag" data-icon="nodedotjs" data-color-dark="339933" data-color-light="339933">Node.js</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="gamedev" class="section">
+                    <h2 class="section-title">GameDev</h2>
+                    
+                    <h3 class="subsection-title">Мои игры на платформе Steam</h3>
+                    <div class="games-grid">
+                        <a href="https://store.steampowered.com/app/1329990/My_Silly_Life/?curator_clanid=41222558" target="_blank" class="game-card">
+                            <div class="game-image">
+                                <img src="images/games/my-silly-life.jpg" alt="My Silly Life" loading="lazy">
+                            </div>
+                            <div class="game-content">
+                                <h4 class="game-title">My Silly Life</h4>
+                                <p class="game-stats">3,600 игроков • [2020]</p>
+                                <div class="game-tech">
+                                    <span class="tag" data-icon="renpy" data-color="FF7F7F">Ren'Py</span>
+                                    <span class="tag" data-icon="steam" data-color-dark="ffffff" data-color-light="000000">Steam</span>
+                                </div>
+                            </div>
+                        </a>
+
+                        <a href="https://store.steampowered.com/app/1396630/Hollow_Mind_The_Lost_Puppy/?curator_clanid=41222558" target="_blank" class="game-card">
+                            <div class="game-image">
+                                <img src="images/games/hollow-mind.png" alt="Hollow Mind: The Lost Puppy" loading="lazy">
+                            </div>
+                            <div class="game-content">
+                                <h4 class="game-title">Hollow Mind: The Lost Puppy</h4>
+                                <p class="game-stats">51,400 игроков • [2020]</p>
+                                <div class="game-tech">
+                                    <span class="tag" data-icon="unity" data-color-dark="ffffff" data-color-light="000000">Unity</span>
+                                    <span class="tag" data-icon="steam" data-color-dark="ffffff" data-color-light="000000">Steam</span>
+                                </div>
+                            </div>
+                        </a>
+
+                        <a href="https://store.steampowered.com/app/1670530/Absentis/?curator_clanid=41222558" target="_blank" class="game-card">
+                            <div class="game-image">
+                                <img src="images/games/absentis.png" alt="Absentis" loading="lazy">
+                            </div>
+                            <div class="game-content">
+                                <h4 class="game-title">Absentis</h4>
+                                <p class="game-stats">1,000 игроков • [2025]</p>
+                                <div class="game-tech">
+                                    <span class="tag" data-icon="unity" data-color-dark="ffffff" data-color-light="000000">Unity</span>
+                                    <span class="tag" data-icon="steam" data-color-dark="ffffff" data-color-light="000000">Steam</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <h3 class="subsection-title">Мои игры на платформе Яндекс Игры</h3>
+                    <div class="games-grid">
+                        <a href="https://yandex.ru/games/app/281625?draft=true&lang=ru#info" target="_blank" class="game-card">
+                            <div class="game-image">
+                                <img src="images/games/nubik-lift.png" alt="Нубик падает на лифте" loading="lazy">
+                            </div>
+                            <div class="game-content">
+                                <h4 class="game-title">Нубик падает на лифте</h4>
+                                <p class="game-stats">35,500 игроков • [2024]</p>
+                                <div class="game-tech">
+                                    <span class="tag" data-icon="unity" data-color-dark="ffffff" data-color-light="000000">Unity</span>
+                                    <span class="tag">Яндекс Игры</span>
+                                </div>
+                            </div>
+                        </a>
+
+                        <a href="https://yandex.ru/games/app/302877?lang=ru" target="_blank" class="game-card">
+                            <div class="game-image">
+                                <img src="images/games/robbi-zombie.png" alt="Робби против зомби: Тайкон шутер" loading="lazy">
+                            </div>
+                            <div class="game-content">
+                                <h4 class="game-title">Робби против зомби: Тайкон шутер</h4>
+                                <p class="game-stats">31,500 игроков • [2024]</p>
+                                <div class="game-tech">
+                                    <span class="tag" data-icon="unity" data-color-dark="ffffff" data-color-light="000000">Unity</span>
+                                    <span class="tag">Яндекс Игры</span>
+                                </div>
+                            </div>
+                        </a>
+
+                        <a href="https://yandex.ru/games/app/276979?lang=ru#info" target="_blank" class="game-card">
+                            <div class="game-image">
+                                <img src="images/games/russian-drift.png" alt="Русский Дрифт: Погоня" loading="lazy">
+                            </div>
+                            <div class="game-content">
+                                <h4 class="game-title">Русский Дрифт: Погоня</h4>
+                                <p class="game-stats">18,400 игроков • [2024]</p>
+                                <div class="game-tech">
+                                    <span class="tag" data-icon="unity" data-color-dark="ffffff" data-color-light="000000">Unity</span>
+                                    <span class="tag">Яндекс Игры</span>
+                                </div>
+                            </div>
+                        </a>
+
+                        <a href="https://yandex.ru/games/app/352067?lang=ru#info" target="_blank" class="game-card">
+                            <div class="game-image">
+                                <img src="images/games/robbi-stars.png" alt="Робби Старс" loading="lazy">
+                            </div>
+                            <div class="game-content">
+                                <h4 class="game-title">Робби Старс</h4>
+                                <p class="game-stats">7,500 игроков • [2024]</p>
+                                <div class="game-tech">
+                                    <span class="tag" data-icon="unity" data-color-dark="ffffff" data-color-light="000000">Unity</span>
+                                    <span class="tag">Яндекс Игры</span>
+                                </div>
+                            </div>
+                        </a>
+
+                        <div class="game-card">
+                            <div class="game-image">
+                                <img src="images/games/hellish-descent.png" alt="Адский спуск: Нубик с динамитом" loading="lazy">
+                            </div>
+                            <div class="game-content">
+                                <h4 class="game-title">Адский спуск: Нубик с динамитом</h4>
+                                <p class="game-stats">1,400 игроков • [2024]</p>
+                                <div class="game-tech">
+                                    <span class="tag" data-icon="unity" data-color-dark="ffffff" data-color-light="000000">Unity</span>
+                                    <span class="tag">Яндекс Игры</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="game-card">
+                            <div class="game-image">
+                                <img src="images/games/cyberpunk-speedrunner.png" alt="Киберпанк спидраннер" loading="lazy">
+                            </div>
+                            <div class="game-content">
+                                <h4 class="game-title">Киберпанк спидраннер</h4>
+                                <p class="game-stats">1,100 игроков • [2024]</p>
+                                <div class="game-tech">
+                                    <span class="tag" data-icon="unity" data-color-dark="ffffff" data-color-light="000000">Unity</span>
+                                    <span class="tag">Яндекс Игры</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p class="game-note">Некоторые игры на площадке ЯИ уже были сняты с публикации</p>
+                </section>
+
+                <section id="media" class="section">
+                    <h2 class="section-title">Media</h2>
+                    
+                    <h3 class="subsection-title">Подборка моих видео</h3>
+                    <div class="media-grid">
+                        <div class="media-item">
+                            <iframe src="https://vk.com/video_ext.php?oid=-210631782&id=456239039" width="640" height="360" frameborder="0" allowfullscreen></iframe>
+                        </div>
+                        <div class="media-item">
+                            <iframe src="https://vk.com/video_ext.php?oid=-210631782&id=456239031" width="640" height="360" frameborder="0" allowfullscreen></iframe>
+                        </div>
+                        <div class="media-item">
+                            <iframe src="https://vk.com/video_ext.php?oid=-210631782&id=456239028" width="640" height="360" frameborder="0" allowfullscreen></iframe>
+                        </div>
+                        <div class="media-item">
+                            <iframe src="https://vk.com/video_ext.php?oid=-214878215&id=456239017" width="640" height="360" frameborder="0" allowfullscreen></iframe>
+                        </div>
+                    </div>
+
+                    <h3 class="subsection-title" style="margin-top: 48px;">Подборка моих дизайнов</h3>
+                    <div style="text-align: center; margin-top: 24px;">
+                        <a href="https://www.figma.com/design/4Mh0PCWsphFtC7xkgMDEOL/%D0%9C%D0%BE%D0%B8-%D0%B4%D0%B8%D0%B7%D0%B0%D0%B9%D0%BD%D1%8B?node-id=0-1" target="_blank" class="figma-link-btn" id="figmaLinkBtn">
+                            <span class="figma-icon"></span>
+                            <span>Открыть в Figma</span>
+                        </a>
+                    </div>
+                </section>
+
+                <section id="social" class="section">
+                    <h2 class="section-title">Соц Активность</h2>
+                    
+                    <h3 class="subsection-title">Студенческий совет</h3>
+                    <p class="text">В моём университете достаточно сильно развит Студенческий совет, за период своего обучения я успел попробовать себя во множестве проектов и активностей: в роли участника, организатора, главного организатора.</p>
+                    
+                    <p class="text">Наиболее стоящими внимания я считаю следующие роли:</p>
+
+                    <details class="activity-details">
+                        <summary class="activity-summary">Директор ITCenter 2022-2023</summary>
+                        <div class="activity-content">
+                            <p class="text"><strong>ITCenter</strong> занимается реализацией IT решений для проектов и структур Студенческого совета.</p>
+                            <p class="text">Из наиболее важных продуктов:</p>
+                            <ol class="text">
+                                <li>Чат-бот для поиска свободных аудиторий. (ежедневно используют 80-100 человек на протяжении нескольких лет)</li>
+                                <li>Сайт проекта "Экономическая игра"<br>
+                                    Сайт представляет собой некую банковскую систему с личными кабинетами участников и организаторов.<br>
+                                    Участники проекта - первокурсники ~6000 человек, а также ~500 организаторов</li>
+                            </ol>
+                        </div>
+                    </details>
+
+                    <details class="activity-details">
+                        <summary class="activity-summary">Секретарь Студенческого совета 2023-2024</summary>
+                        <div class="activity-content">
+                            <p class="text">Работа с документооборотом ВУЗа, формирование служебных записок и протоколов. Работа с сервисом Directum.</p>
+                        </div>
+                    </details>
+
+                    <details class="activity-details">
+                        <summary class="activity-summary">Технический директор проекта "Школа Выживания" 2025</summary>
+                        <div class="activity-content">
+                            <p class="text">Управление структурой организаторов "Техническая часть" (25 человек)</p>
+                            <p class="text">Контроль технического оснащения проекта</p>
+                            <p class="text">~ 160 участников и ~100 организаторов из 5 ВУЗов Москвы</p>
+                        </div>
+                    </details>
+
+                    <p class="text" style="margin-top: 24px;">Также у меня есть полная <a href="https://www.notion.so/storkych/24a0e846c4924d6ca2bc54f4ddef3807?v=8d639f76429b4bb5823f853e62d2b0cc" target="_blank" class="link">таблица</a> моего участия в проектах в Notion (доступен с VPN)</p>
+
+                    <figure class="activity-image">
+                        <img src="images/web/student-council.png" alt="Мой опыт в рамках Студенческого совета РЭУ" loading="lazy">
+                        <figcaption>Мой опыт в рамках Студенческого совета РЭУ</figcaption>
+                    </figure>
+                </section>
+            </div>
 
         </main>
 
@@ -222,31 +590,47 @@
         </footer>
     </div>
 
-    <!-- Модальное окно выбора темы PDF -->
-    <div class="pdf-modal" id="pdfModal">
-        <div class="pdf-modal-content">
-            <h3>Выберите тему PDF</h3>
-            <div class="pdf-modal-buttons">
-                <button class="pdf-option-btn" data-theme="dark">
-                    <span class="pdf-option-icon" data-icon="moon" data-color="currentColor"></span>
-                    <span>Тёмная</span>
-                </button>
-                <button class="pdf-option-btn" data-theme="light">
-                    <span class="pdf-option-icon" data-icon="sun" data-color="currentColor"></span>
-                    <span>Светлая</span>
-                </button>
-            </div>
-            <button class="pdf-modal-close" id="pdfModalClose" aria-label="Закрыть">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <div class="gallery-modal" id="galleryModal">
+        <div class="gallery-modal-content">
+            <button class="gallery-close" id="galleryClose" aria-label="Закрыть">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <line x1="18" y1="6" x2="6" y2="18"></line>
                     <line x1="6" y1="6" x2="18" y2="18"></line>
                 </svg>
             </button>
+            <button class="gallery-nav gallery-prev" id="galleryPrev" aria-label="Предыдущее">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="15 18 9 12 15 6"></polyline>
+                </svg>
+            </button>
+            <button class="gallery-nav gallery-next" id="galleryNext" aria-label="Следующее">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
+            </button>
+            <div class="gallery-image-container">
+                <img id="galleryImage" src="" alt="">
+            </div>
+            <div class="gallery-info">
+                <div class="gallery-counter">
+                    <span id="galleryCurrent">1</span> / <span id="galleryTotal">1</span>
+                </div>
+                <p class="gallery-description" id="galleryDescription"></p>
+            </div>
         </div>
     </div>
 
+
     <script>
-        document.getElementById('date').textContent = new Date().toLocaleDateString('ru-RU', {
+        (function() {
+            'use strict';
+            
+            if (typeof document === 'undefined' || !document.getElementById) {
+                console.warn('Document not ready');
+                return;
+            }
+            
+            document.getElementById('date').textContent = new Date().toLocaleDateString('ru-RU', {
             year: 'numeric',
             month: 'long',
             day: 'numeric'
@@ -289,6 +673,69 @@
         html.setAttribute('data-theme', savedTheme);
         updateAvatar();
 
+        const modeToggle = document.getElementById('modeToggle');
+        const modeToggleMobile = document.getElementById('modeToggleMobile');
+        const resumeContent = document.getElementById('resumeContent');
+        const portfolioContent = document.getElementById('portfolioContent');
+        const navLinks = document.getElementById('navLinks');
+        if ((!modeToggle && !modeToggleMobile) || !navLinks) return;
+        
+        const modeOptions = modeToggle ? modeToggle.querySelectorAll('.mode-option') : [];
+        const modeOptionsMobile = modeToggleMobile ? modeToggleMobile.querySelectorAll('.mode-option') : [];
+        
+        const savedMode = localStorage.getItem('mode') || 'resume';
+        if (modeToggle) modeToggle.setAttribute('data-mode', savedMode);
+        if (modeToggleMobile) modeToggleMobile.setAttribute('data-mode', savedMode);
+        updateMode(savedMode);
+
+        function updateMode(mode) {
+            const allOptions = [...modeOptions, ...modeOptionsMobile];
+            allOptions.forEach(option => {
+                const optionMode = option.getAttribute('data-mode');
+                option.setAttribute('aria-selected', optionMode === mode ? 'true' : 'false');
+            });
+            
+            if (modeToggle) modeToggle.setAttribute('data-mode', mode);
+            if (modeToggleMobile) modeToggleMobile.setAttribute('data-mode', mode);
+
+            if (!resumeContent || !portfolioContent || !navLinks) return;
+            
+            if (mode === 'resume') {
+                resumeContent.style.display = 'block';
+                portfolioContent.style.display = 'none';
+                Array.from(navLinks.querySelectorAll('.nav-link')).forEach(link => {
+                    const linkSection = link.getAttribute('data-section');
+                    link.style.display = linkSection === 'resume' ? '' : 'none';
+                });
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            } else {
+                resumeContent.style.display = 'none';
+                portfolioContent.style.display = 'block';
+                Array.from(navLinks.querySelectorAll('.nav-link')).forEach(link => {
+                    const linkSection = link.getAttribute('data-section');
+                    link.style.display = linkSection === 'portfolio' ? '' : 'none';
+                });
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                setTimeout(initGalleryCards, 100);
+            }
+            updateActiveNavLink();
+        }
+
+            const allOptionsForEvents = [...modeOptions];
+            if (modeOptionsMobile.length > 0) {
+                allOptionsForEvents.push(...modeOptionsMobile);
+            }
+            
+            allOptionsForEvents.forEach(option => {
+                option.addEventListener('click', () => {
+                    const newMode = option.getAttribute('data-mode');
+                    if (modeToggle) modeToggle.setAttribute('data-mode', newMode);
+                    if (modeToggleMobile) modeToggleMobile.setAttribute('data-mode', newMode);
+                    localStorage.setItem('mode', newMode);
+                    updateMode(newMode);
+                });
+            });
+
         themeToggle.addEventListener('click', () => {
             const currentTheme = html.getAttribute('data-theme');
             const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
@@ -297,6 +744,7 @@
             updateAvatar();
             updateGithubIcon();
             addContactIcons();
+            updateThemeIcons();
         });
 
         async function addIcons() {
@@ -304,7 +752,17 @@
             
             const iconPromises = Array.from(tags).map(async (tag) => {
                 const iconName = tag.getAttribute('data-icon');
-                const iconColor = tag.getAttribute('data-color');
+                const currentTheme = html.getAttribute('data-theme');
+                let iconColor;
+                
+                if (tag.hasAttribute('data-color-dark') && tag.hasAttribute('data-color-light')) {
+                    iconColor = currentTheme === 'dark' 
+                        ? tag.getAttribute('data-color-dark') 
+                        : tag.getAttribute('data-color-light');
+                } else {
+                    iconColor = tag.getAttribute('data-color');
+                }
+                
                 const iconSvg = await getSimpleIcon(iconName, iconColor);
                 if (iconSvg) {
                     const iconWrapper = document.createElement('span');
@@ -317,14 +775,43 @@
             await Promise.all(iconPromises);
         }
 
+        async function updateThemeIcons() {
+            const tags = document.querySelectorAll('.tag[data-icon]');
+            
+            const iconPromises = Array.from(tags).map(async (tag) => {
+                if (!tag.hasAttribute('data-color-dark') || !tag.hasAttribute('data-color-light')) {
+                    return;
+                }
+                
+                const iconName = tag.getAttribute('data-icon');
+                const currentTheme = html.getAttribute('data-theme');
+                const iconColor = currentTheme === 'dark' 
+                    ? tag.getAttribute('data-color-dark') 
+                    : tag.getAttribute('data-color-light');
+                
+                const iconSvg = await getSimpleIcon(iconName, iconColor);
+                if (iconSvg) {
+                    const iconWrapper = tag.querySelector('.tag-icon');
+                    if (iconWrapper) {
+                        iconWrapper.innerHTML = iconSvg;
+                    }
+                }
+            });
+
+            await Promise.all(iconPromises);
+        }
+
         async function getSimpleIcon(iconName, color) {
+            if (!iconName) return null;
             try {
                 const svgResponse = await fetch(`https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/${iconName}.svg`);
                 if (svgResponse.ok) {
                     const svgText = await svgResponse.text();
                     const parser = new DOMParser();
                     const svgDoc = parser.parseFromString(svgText, 'image/svg+xml');
+                    if (!svgDoc || !svgDoc.documentElement) return null;
                     const svgElement = svgDoc.documentElement;
+                    if (typeof svgElement.querySelector !== 'function') return null;
                     const path = svgElement.querySelector('path');
                     
                     if (path) {
@@ -413,28 +900,39 @@
         }
 
         async function addPdfIcons() {
-            // Иконка для кнопки PDF
             const pdfBtn = document.getElementById('downloadPdfBtn');
-            if (pdfBtn && pdfBtn.hasAttribute('data-icon')) {
-                const iconName = pdfBtn.getAttribute('data-icon');
-                const iconColor = pdfBtn.getAttribute('data-color');
-                const iconSvg = await getSimpleIcon(iconName, iconColor);
-                if (iconSvg) {
-                    const iconSpan = pdfBtn.querySelector('.pdf-icon');
-                    if (iconSpan) {
-                        const svgWithSize = iconSvg.replace('width="16"', 'width="16"').replace('height="16"', 'height="16"');
+            if (pdfBtn) {
+                const iconSpan = pdfBtn.querySelector('.pdf-icon');
+                if (iconSpan) {
+                    iconSpan.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>';
+                }
+            }
+            
+            const pdfBtnMobile = document.getElementById('downloadPdfBtnMobile');
+            if (pdfBtnMobile) {
+                const iconSpan = pdfBtnMobile.querySelector('.pdf-icon');
+                if (iconSpan) {
+                    iconSpan.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>';
+                }
+            }
+            
+            const figmaBtn = document.getElementById('figmaLinkBtn');
+            if (figmaBtn) {
+                const iconSpan = figmaBtn.querySelector('.figma-icon');
+                if (iconSpan) {
+                    const figmaIcon = await getSimpleIcon('figma', 'F24E1E');
+                    if (figmaIcon) {
+                        const svgWithSize = figmaIcon.replace('width="16"', 'width="20"').replace('height="16"', 'height="20"');
                         iconSpan.innerHTML = svgWithSize;
                     }
                 }
             }
 
-            // Иконки для кнопок выбора темы в модальном окне
             const pdfOptionIcons = document.querySelectorAll('.pdf-option-icon[data-icon]');
             const iconPromises = Array.from(pdfOptionIcons).map(async (iconSpan) => {
                 const iconName = iconSpan.getAttribute('data-icon');
                 const iconColor = iconSpan.getAttribute('data-color');
                 
-                // Для sun и moon используем простые SVG иконки
                 if (iconName === 'sun') {
                     iconSpan.innerHTML = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path></svg>`;
                 } else if (iconName === 'moon') {
@@ -506,22 +1004,50 @@
         window.addEventListener('scroll', updateActiveNavLink);
         updateActiveNavLink();
 
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const mobileNavLinks = document.getElementById('navLinks');
+        
+        if (mobileMenuToggle && mobileNavLinks) {
+            mobileMenuToggle.addEventListener('click', () => {
+                mobileMenuToggle.classList.toggle('active');
+                mobileNavLinks.classList.toggle('active');
+            });
+
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.addEventListener('click', () => {
+                    if (window.innerWidth <= 768) {
+                        mobileMenuToggle.classList.remove('active');
+                        mobileNavLinks.classList.remove('active');
+                    }
+                });
+            });
+        }
+
         const downloadPdfBtn = document.getElementById('downloadPdfBtn');
-        const pdfModal = document.getElementById('pdfModal');
-        const pdfModalClose = document.getElementById('pdfModalClose');
+        const downloadPdfBtnMobile = document.getElementById('downloadPdfBtnMobile');
+        const pdfDropdown = document.getElementById('pdfDropdown');
+        const pdfDropdownMobile = document.getElementById('pdfDropdownMobile');
         const pdfOptionButtons = document.querySelectorAll('.pdf-option-btn');
 
-        downloadPdfBtn.addEventListener('click', () => {
-            pdfModal.style.display = 'flex';
-        });
+        function handlePdfClick(e, dropdown) {
+            e.stopPropagation();
+            if (dropdown) {
+                dropdown.classList.toggle('active');
+            }
+        }
 
-        pdfModalClose.addEventListener('click', () => {
-            pdfModal.style.display = 'none';
-        });
+        if (downloadPdfBtn && pdfDropdown) {
+            downloadPdfBtn.addEventListener('click', (e) => handlePdfClick(e, pdfDropdown));
+        }
+        
+        if (downloadPdfBtnMobile && pdfDropdownMobile) {
+            downloadPdfBtnMobile.addEventListener('click', (e) => handlePdfClick(e, pdfDropdownMobile));
+        }
 
-        pdfModal.addEventListener('click', (e) => {
-            if (e.target === pdfModal) {
-                pdfModal.style.display = 'none';
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.pdf-dropdown-wrapper')) {
+                if (pdfDropdown) pdfDropdown.classList.remove('active');
+                if (pdfDropdownMobile) pdfDropdownMobile.classList.remove('active');
             }
         });
 
@@ -533,10 +1059,164 @@
                     : 'Доленков_Игорь_резюме_светлая.pdf';
                 
                 window.open(fileName, '_blank');
-                
-                pdfModal.style.display = 'none';
+                if (pdfDropdown) pdfDropdown.classList.remove('active');
+                if (pdfDropdownMobile) pdfDropdownMobile.classList.remove('active');
             });
         });
+
+        const galleryModal = document.getElementById('galleryModal');
+        const galleryClose = document.getElementById('galleryClose');
+        const galleryImage = document.getElementById('galleryImage');
+        const galleryPrev = document.getElementById('galleryPrev');
+        const galleryNext = document.getElementById('galleryNext');
+        const galleryCurrent = document.getElementById('galleryCurrent');
+        const galleryTotal = document.getElementById('galleryTotal');
+        const galleryDescription = document.getElementById('galleryDescription');
+
+        const galleries = {
+            'assetstorage': {
+                images: [
+                    'images/web/assetstorage-1.png',
+                    'images/web/assetstorage-2.png',
+                    'images/web/assetstorage-3.png',
+                    'images/web/assetstorage-4.png',
+                    'images/web/assetstorage-5.png'
+                ],
+                description: 'Библиотека ассетов для разработчиков игр'
+            },
+            'lct-hackathon': {
+                images: [
+                    'images/web/lct-hackathon-1.png',
+                    'images/web/lct-hackathon-2.png',
+                    'images/web/lct-hackathon-3.png',
+                    'images/web/lct-hackathon-4.png',
+                    'images/web/lct-hackathon-5.png'
+                ],
+                description: 'Вместе с командой принимал участие в хакатоне «Лидеры цифровой трансформации 2025», занимался фронтом приложения. Прошли в финал хакатона.'
+            },
+            'belbin': {
+                images: [
+                    'images/web/belbin-2024.png',
+                    'images/web/belbin-2025.png',
+                    'images/web/belbin-test.png',
+                    'images/web/belbin-complete.png',
+                    'images/web/belbin-results.png'
+                ],
+                description: 'С 2022 года занимаюсь поддержкой разработанного мной сайта для проекта "Школа Актива" (проект проводится ежегодно). Участники проходят тест Белбина, а их результаты получает команда организаторов в Google таблице.'
+            },
+            'soglasie': {
+                images: [
+                    'images/web/soglasie-main.png',
+                    'images/web/soglasie-chop.png',
+                    'images/web/soglasie-m.png'
+                ],
+                description: 'Сайт группы охранных компаний "Согласие"'
+            },
+            'hueblend': {
+                images: [
+                    'images/web/hueblend-1.png',
+                    'images/web/hueblend-2.png'
+                ],
+                description: 'Веб-приложение для подбора и создания цветовых палитр'
+            },
+            'quest': {
+                images: [
+                    'images/web/quest-stations.png',
+                    'images/web/quest-admin.png',
+                    'images/web/quest-create.png'
+                ],
+                description: 'Веб-сервис для управления станциями квестов с админ-панелью'
+            }
+        };
+
+        let currentGallery = null;
+        let currentIndex = 0;
+
+        function openGallery(galleryName) {
+            const gallery = galleries[galleryName];
+            if (!gallery) return;
+            
+            currentGallery = gallery.images;
+            currentIndex = 0;
+            galleryDescription.textContent = gallery.description || '';
+            updateGalleryImage();
+            galleryModal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeGallery() {
+            galleryModal.style.display = 'none';
+            document.body.style.overflow = '';
+        }
+
+        function updateGalleryImage() {
+            if (currentGallery && currentGallery.length > 0) {
+                galleryImage.src = currentGallery[currentIndex];
+                galleryCurrent.textContent = currentIndex + 1;
+                galleryTotal.textContent = currentGallery.length;
+                galleryPrev.style.display = currentIndex === 0 ? 'none' : 'flex';
+                galleryNext.style.display = currentIndex === currentGallery.length - 1 ? 'none' : 'flex';
+            }
+        }
+
+        function nextImage() {
+            if (currentGallery && currentIndex < currentGallery.length - 1) {
+                currentIndex++;
+                updateGalleryImage();
+            }
+        }
+
+        function prevImage() {
+            if (currentGallery && currentIndex > 0) {
+                currentIndex--;
+                updateGalleryImage();
+            }
+        }
+
+        function initGalleryCards() {
+            document.querySelectorAll('.game-card[data-gallery]').forEach(card => {
+                if (card.dataset.galleryInitialized) return;
+                card.dataset.galleryInitialized = 'true';
+                card.style.cursor = 'pointer';
+                card.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    const galleryName = card.getAttribute('data-gallery');
+                    console.log('Gallery clicked:', galleryName, galleries[galleryName]);
+                    if (galleries[galleryName]) {
+                        openGallery(galleryName);
+                    }
+                });
+            });
+        }
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initGalleryCards);
+        } else {
+            initGalleryCards();
+        }
+
+        galleryClose.addEventListener('click', closeGallery);
+        galleryModal.addEventListener('click', (e) => {
+            if (e.target === galleryModal) {
+                closeGallery();
+            }
+        });
+        galleryPrev.addEventListener('click', prevImage);
+        galleryNext.addEventListener('click', nextImage);
+
+        document.addEventListener('keydown', (e) => {
+            if (galleryModal.style.display === 'flex') {
+                if (e.key === 'Escape') {
+                    closeGallery();
+                } else if (e.key === 'ArrowLeft') {
+                    prevImage();
+                } else if (e.key === 'ArrowRight') {
+                    nextImage();
+                }
+            }
+        });
+        })();
     </script>
 </body>
 </html>
