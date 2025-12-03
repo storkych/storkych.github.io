@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Resume | Доленков Игорь</title>
+    <title>Доленков Игорь</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -15,13 +15,19 @@
                 <a href="#achievements" class="nav-link">Достижения</a>
                 <a href="#skills" class="nav-link">Навыки</a>
             </div>
-            <button class="theme-toggle" id="themeToggle" aria-label="Переключить тему">
-                <span class="toggle-track">
-                    <span class="toggle-icon sun-icon"></span>
-                    <span class="toggle-thumb"></span>
-                    <span class="toggle-icon moon-icon"></span>
-                </span>
-            </button>
+            <div class="navbar-actions">
+                <button class="download-pdf-btn" id="downloadPdfBtn" aria-label="Скачать PDF" data-icon="adobepdf" data-color="FF0000">
+                    <span class="pdf-icon"></span>
+                    <span>PDF</span>
+                </button>
+                <button class="theme-toggle" id="themeToggle" aria-label="Переключить тему">
+                    <span class="toggle-track">
+                        <span class="toggle-icon sun-icon"></span>
+                        <span class="toggle-thumb"></span>
+                        <span class="toggle-icon moon-icon"></span>
+                    </span>
+                </button>
+            </div>
         </div>
     </nav>
     <div class="container">
@@ -38,14 +44,14 @@
                             Fullstack-разработчик с опытом создания веб-приложений и игр. В коммерческой разработке занимаюсь корпоративными сервисами на React и Node.js. В свободное время разрабатываю инди-игры на Unity и участвую в хакатонах. Увлекаюсь полным циклом разработки: от идеи до релиза.
                         </p>
                         <div class="contact-info">
-                            <div class="contact-text">
-                                <span class="contact-label">Email:</span>
-                                <a href="mailto:storkych@gmail.com" class="contact-link">storkych@gmail.com</a>
-                            </div>
-                            <div class="contact-text">
-                                <span class="contact-label">Телефон:</span>
-                                <a href="tel:+79161539310" class="contact-link">+7 (916) 153-93-10</a>
-                            </div>
+                            <a href="mailto:storkych@gmail.com" class="contact-link" data-contact-icon="mail">
+                                <span class="contact-icon"></span>
+                                <span class="contact-text">storkych@gmail.com</span>
+                            </a>
+                            <a href="tel:+79161539310" class="contact-link" data-contact-icon="phone">
+                                <span class="contact-icon"></span>
+                                <span class="contact-text">+7 (916) 153-93-10</span>
+                            </a>
                         </div>
                         <div class="links">
                             <a href="https://github.com/storkych" target="_blank" class="link" data-social-icon="github" data-color-dark="ffffff" data-color-light="24292f">
@@ -146,7 +152,10 @@
                     <div class="achievement-item">
                         <div class="achievement-header">
                             <h3 class="achievement-title">Хакатон ЛЦТ 2025 (Лидеры Цифровой Трансформации)</h3>
-                            <span class="achievement-date">октябрь 2025</span>
+                            <div class="achievement-header-right">
+                                <a href="achievments/LCT 2025.pdf" target="_blank" class="certificate-button">Сертификат</a>
+                                <span class="achievement-date">октябрь 2025</span>
+                            </div>
                         </div>
                         <p class="achievement-desc">Трек «Интерактивный электронный журнал общего строительного контроля» от Главного контрольного управления города Москвы</p>
                         <p class="achievement-result"><span class="achievement-badge">Финалист</span>, команда ITCenter</p>
@@ -154,7 +163,10 @@
                     <div class="achievement-item">
                         <div class="achievement-header">
                             <h3 class="achievement-title">Хакатон от MAX и VK Education</h3>
-                            <span class="achievement-date">ноябрь 2025</span>
+                            <div class="achievement-header-right">
+                                <a href="achievments/VK Educatuion & MAX.pdf" target="_blank" class="certificate-button">Сертификат</a>
+                                <span class="achievement-date">ноябрь 2025</span>
+                            </div>
                         </div>
                         <p class="achievement-desc">Трек «Цифровизация»</p>
                         <p class="achievement-result"><span class="achievement-badge">Финалист</span>, команда ITCenter</p>
@@ -210,6 +222,29 @@
         </footer>
     </div>
 
+    <!-- Модальное окно выбора темы PDF -->
+    <div class="pdf-modal" id="pdfModal">
+        <div class="pdf-modal-content">
+            <h3>Выберите тему PDF</h3>
+            <div class="pdf-modal-buttons">
+                <button class="pdf-option-btn" data-theme="dark">
+                    <span class="pdf-option-icon" data-icon="moon" data-color="currentColor"></span>
+                    <span>Тёмная</span>
+                </button>
+                <button class="pdf-option-btn" data-theme="light">
+                    <span class="pdf-option-icon" data-icon="sun" data-color="currentColor"></span>
+                    <span>Светлая</span>
+                </button>
+            </div>
+            <button class="pdf-modal-close" id="pdfModalClose" aria-label="Закрыть">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+        </div>
+    </div>
+
     <script>
         document.getElementById('date').textContent = new Date().toLocaleDateString('ru-RU', {
             year: 'numeric',
@@ -261,6 +296,7 @@
             localStorage.setItem('theme', newTheme);
             updateAvatar();
             updateGithubIcon();
+            addContactIcons();
         });
 
         async function addIcons() {
@@ -340,6 +376,29 @@
             await Promise.all(iconPromises);
         }
 
+        function addContactIcons() {
+            const contactLinks = document.querySelectorAll('.contact-link[data-contact-icon]');
+            
+            contactLinks.forEach(link => {
+                const iconType = link.getAttribute('data-contact-icon');
+                const iconSpan = link.querySelector('.contact-icon');
+                
+                if (!iconSpan) return;
+                
+                let iconSvg = '';
+                
+                if (iconType === 'mail') {
+                    iconSvg = `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>`;
+                } else if (iconType === 'phone') {
+                    iconSvg = `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>`;
+                }
+                
+                if (iconSvg) {
+                    iconSpan.innerHTML = iconSvg;
+                }
+            });
+        }
+
         async function addThemeIcons() {
             const sunIcon = document.querySelector('.toggle-icon.sun-icon');
             const moonIcon = document.querySelector('.toggle-icon.moon-icon');
@@ -353,17 +412,54 @@
             }
         }
 
+        async function addPdfIcons() {
+            // Иконка для кнопки PDF
+            const pdfBtn = document.getElementById('downloadPdfBtn');
+            if (pdfBtn && pdfBtn.hasAttribute('data-icon')) {
+                const iconName = pdfBtn.getAttribute('data-icon');
+                const iconColor = pdfBtn.getAttribute('data-color');
+                const iconSvg = await getSimpleIcon(iconName, iconColor);
+                if (iconSvg) {
+                    const iconSpan = pdfBtn.querySelector('.pdf-icon');
+                    if (iconSpan) {
+                        const svgWithSize = iconSvg.replace('width="16"', 'width="16"').replace('height="16"', 'height="16"');
+                        iconSpan.innerHTML = svgWithSize;
+                    }
+                }
+            }
+
+            // Иконки для кнопок выбора темы в модальном окне
+            const pdfOptionIcons = document.querySelectorAll('.pdf-option-icon[data-icon]');
+            const iconPromises = Array.from(pdfOptionIcons).map(async (iconSpan) => {
+                const iconName = iconSpan.getAttribute('data-icon');
+                const iconColor = iconSpan.getAttribute('data-color');
+                
+                // Для sun и moon используем простые SVG иконки
+                if (iconName === 'sun') {
+                    iconSpan.innerHTML = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path></svg>`;
+                } else if (iconName === 'moon') {
+                    iconSpan.innerHTML = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>`;
+                }
+            });
+
+            await Promise.all(iconPromises);
+        }
+
         if (document.readyState === 'loading') {
             document.addEventListener('DOMContentLoaded', async () => {
                 await addSocialIcons();
                 await updateGithubIcon();
+                addContactIcons();
                 addThemeIcons();
+                await addPdfIcons();
             });
         } else {
             (async () => {
                 await addSocialIcons();
                 await updateGithubIcon();
+                addContactIcons();
                 addThemeIcons();
+                await addPdfIcons();
             })();
         }
 
@@ -409,6 +505,38 @@
 
         window.addEventListener('scroll', updateActiveNavLink);
         updateActiveNavLink();
+
+        const downloadPdfBtn = document.getElementById('downloadPdfBtn');
+        const pdfModal = document.getElementById('pdfModal');
+        const pdfModalClose = document.getElementById('pdfModalClose');
+        const pdfOptionButtons = document.querySelectorAll('.pdf-option-btn');
+
+        downloadPdfBtn.addEventListener('click', () => {
+            pdfModal.style.display = 'flex';
+        });
+
+        pdfModalClose.addEventListener('click', () => {
+            pdfModal.style.display = 'none';
+        });
+
+        pdfModal.addEventListener('click', (e) => {
+            if (e.target === pdfModal) {
+                pdfModal.style.display = 'none';
+            }
+        });
+
+        pdfOptionButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const theme = btn.getAttribute('data-theme');
+                const fileName = theme === 'dark' 
+                    ? 'Доленков_Игорь_резюме.pdf'
+                    : 'Доленков_Игорь_резюме_светлая.pdf';
+                
+                window.open(fileName, '_blank');
+                
+                pdfModal.style.display = 'none';
+            });
+        });
     </script>
 </body>
 </html>
