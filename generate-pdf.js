@@ -100,7 +100,14 @@ async function generatePDF(theme, outputFileName) {
       bottom: '10mm',
       left: '10mm',
       right: '10mm'
-    }
+    },
+    displayHeaderFooter: true,
+    headerTemplate: `
+      <div style="font-size: 10px; color: ${theme === 'dark' ? '#8b949e' : '#656d76'}; text-align: center; width: 100%; padding-top: 0;">
+        Полная версия резюме и портфолио: <a href="https://storkych.github.io" style="color: ${theme === 'dark' ? '#58a6ff' : '#0969da'}; text-decoration: none;">https://storkych.github.io</a>
+      </div>
+    `,
+    footerTemplate: '<div></div>'
   });
 
   await browser.close();
